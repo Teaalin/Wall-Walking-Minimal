@@ -1,0 +1,199 @@
+[gd_scene load_steps=11 format=3 uid="uid://by57gnbr3sunr"]
+
+[ext_resource type="Texture2D" uid="uid://bl1yeqov5yuvm" path="res://resources/tex.png" id="1_taox0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_awtfs"]
+radius = 40.0
+height = 70.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3um8f"]
+albedo_texture = ExtResource("1_taox0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_m40d3"]
+size = Vector3(5, 20, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3jd6"]
+albedo_color = Color(0.658824, 0.564706, 0.52549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0sfu0"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3ysa"]
+albedo_color = Color(0.517647, 0.8, 0.027451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d143v"]
+albedo_color = Color(0.917647, 0.203922, 0.329412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1510"]
+albedo_color = Color(0.164706, 0.541176, 0.929412, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4hlnn"]
+radius = 5.0
+height = 10.0
+radial_segments = 16
+
+[node name="Room" type="Node3D"]
+
+[node name="Sphere" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0)
+use_collision = true
+flip_faces = true
+mesh = SubResource("SphereMesh_awtfs")
+material = SubResource("StandardMaterial3D_3um8f")
+
+[node name="T" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5642, 10.5526, 6.80078)
+
+[node name="Box" type="CSGMesh3D" parent="T"]
+use_collision = true
+mesh = SubResource("BoxMesh_m40d3")
+material = SubResource("StandardMaterial3D_u3jd6")
+
+[node name="Box2" type="CSGMesh3D" parent="T"]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, 3.96778, 9.44594, -2.28629)
+use_collision = true
+mesh = SubResource("BoxMesh_m40d3")
+material = SubResource("StandardMaterial3D_u3jd6")
+
+[node name="SegmentedBall" type="Node3D" parent="."]
+
+[node name="Bottom" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442699, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p3ysa")
+
+[node name="Side1" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 3.9, 2.0427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side2" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.5, 5.9427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side3" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0, 1, 3.9, 9.8427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side4" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18173e-08, -6.18173e-08, -1, -3.9, 2.0427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side5" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -5.5, 5.9427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side6" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(0.707107, 0.707107, -8.74228e-08, 0.707107, -0.707107, 0, -6.18173e-08, -6.18173e-08, -1, -3.9, 9.8427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_d143v")
+
+[node name="Side7" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-1.49012e-08, 1.49012e-08, 1, 0.707107, 0.707107, 0, -0.707107, 0.707107, 4.47035e-08, -1.19209e-07, 2.0427, -3.9)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Side8" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-8.88178e-16, -2.98023e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, 2.98023e-08, 5.96046e-08, 5.9427, -5.5)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Side9" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(1.49012e-08, 1.49012e-08, 1, 0.707107, -0.707107, 0, 0.707107, 0.707107, 4.47035e-08, -1.19209e-07, 9.8427, -3.9)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Side10" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(5.96046e-08, -5.96046e-08, -1, 0.707107, 0.707107, 0, 0.707107, -0.707107, 2.98023e-08, -2.38419e-07, 2.0427, 3.9)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Side11" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-2.66454e-15, -5.96046e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 5.96046e-08, -1.78814e-07, 5.9427, 5.5)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Side12" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(-5.96046e-08, -5.96046e-08, -1, 0.707107, -0.707107, 0, -0.707107, -0.707107, 2.98023e-08, -2.38419e-07, 9.8427, 3.9)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p1510")
+
+[node name="Top" type="CSGMesh3D" parent="SegmentedBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.4427, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_0sfu0")
+material = SubResource("StandardMaterial3D_p3ysa")
+
+[node name="Onix" type="Node3D" parent="."]
+
+[node name="Part1" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4741, 1.57731, -2.73945)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part2" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3028, 6.68811, 1.03264)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part3" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3446, 12.4426, 2.2037)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part4" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7343, 16.8971, 0.213079)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part5" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7335, 20.7059, -4.89461)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part6" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9692, 23.5034, -9.47487)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part7" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6512, 26.1446, -11.752)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part8" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1283, 28.0161, -16.7215)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part9" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4999, 30.006, -22.6092)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part10" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4364, 31.9477, -28.7011)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")
+
+[node name="Part11" type="CSGMesh3D" parent="Onix"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1348, 35.0854, -33.7179)
+use_collision = true
+mesh = SubResource("SphereMesh_4hlnn")

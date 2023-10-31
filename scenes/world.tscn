@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://vdlw0fcvp18f"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_mf8ts"]
+[ext_resource type="PackedScene" uid="uid://by57gnbr3sunr" path="res://scenes/room.tscn" id="2_8emvb"]
+[ext_resource type="PackedScene" uid="uid://gqxxkmiadg56" path="res://scenes/player.tscn" id="3_h5nk2"]
+[ext_resource type="Script" path="res://player.gd" id="5_qw34w"]
+
+[sub_resource type="Environment" id="Environment_7o48r"]
+background_mode = 1
+background_color = Color(0.627451, 0.627451, 0.627451, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_mf8ts")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 576.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 18
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -184.0
+offset_right = 395.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "Controls:
+WASD     move
+SPACE     jump
+ESC          quit
+R               reset
+TAB          toggle mouse capture"
+
+[node name="Dot" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7o48r")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.6532, 0)
+omni_range = 45.948
+omni_attenuation = 0.026278
+
+[node name="Room" parent="." instance=ExtResource("2_8emvb")]
+
+[node name="Player" parent="." instance=ExtResource("3_h5nk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79936, 0)
+script = ExtResource("5_qw34w")
